@@ -1,1 +1,1 @@
-# eventhub
+﻿EventHub monorepo – iskelet
