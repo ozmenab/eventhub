@@ -13,8 +13,12 @@ scrape_configs:
     static_configs:
       - targets: ['cadvisor:8080']
 
-  # (İLERİDE) Spring Boot servisleri eklenecek:
-  # - job_name: 'user-service'
-  #   metrics_path: /actuator/prometheus
-  #   static_configs:
-  #     - targets: ['user-service:8080']
+  - job_name: 'event-service'
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ['host.docker.internal:8083']   
+
+  - job_name: 'user-service'
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ['user-service:8082']

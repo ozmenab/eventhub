@@ -15,7 +15,8 @@
     <module>gateway</module>
     <module>discovery</module>
     <module>config-server</module>
-      <module>services/user-service</module>
+    <module>services/user-service</module>
+    <module>services/event-service</module>
     <!--<module>libs/common</module>-->
   </modules>
 
