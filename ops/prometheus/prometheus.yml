@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  # Prometheus kendisi
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['prometheus:9090']
+
+  # Docker container metrikleri (opsiyonel cAdvisor)
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+
+  # (İLERİDE) Spring Boot servisleri eklenecek:
+  # - job_name: 'user-service'
+  #   metrics_path: /actuator/prometheus
+  #   static_configs:
+  #     - targets: ['user-service:8080']

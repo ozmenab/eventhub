@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: user-service
+  config:
+    import: "optional:configserver:http://localhost:8888"  # Config Server dev
+  datasource:
+    url: jdbc:postgresql://localhost:5433/app   # Docker?daki user-db (host portu 5433)
+    username: eventhub
+    password: eventhub
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always
