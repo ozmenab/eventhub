@@ -73,6 +73,8 @@ services:
     container_name: payment-db
     volumes:
       - payment-db-data:/var/lib/postgresql/data
+    ports:
+      - "5437:5432"
 
   notification-db:
     <<: *postgres-common
