@@ -1,16 +1,25 @@
 spring:
   application:
-    name: event-service
+    name: inventory-service
   config:
     import: "optional:configserver:http://localhost:8888"
   datasource:
-    url: jdbc:postgresql://localhost:5434/app
+    url: jdbc:postgresql://localhost:5435/app   # inventory-db (host port 5435)
     username: eventhub
     password: eventhub
   jpa:
     hibernate:
       ddl-auto: none
     open-in-view: false
+
+  kafka:
+    bootstrap-servers: localhost:9094
+    consumer:
+      group-id: inventory
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 eureka:
   client:
@@ -19,11 +28,10 @@ eureka:
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1
-    hostname: localhost
     instance-id: ${spring.application.name}:${server.port}
 
 server:
-  port: 8083
+  port: 8084
 
 management:
   endpoints:

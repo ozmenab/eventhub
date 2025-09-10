@@ -57,6 +57,8 @@ services:
     container_name: inventory-db
     volumes:
       - inventory-db-data:/var/lib/postgresql/data
+    ports:
+    - "5435:5432"
 
   order-db:
     <<: *postgres-common

@@ -4,7 +4,7 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8888"  # Config Server dev
   datasource:
-    url: jdbc:postgresql://localhost:5433/app   # Docker?daki user-db (host portu 5433)
+    url: jdbc:postgresql://localhost:5433/app   # Dockerdaki user-db (host portu 5433)
     username: eventhub
     password: eventhub
   jpa:
@@ -16,6 +16,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true        # hostname yerine IP kullan
+    ip-address: 127.0.0.1          # yerel geliştirme için sabitle
+    hostname: localhost            # (opsiyonel) yine de hostname gerekirse
+    instance-id: ${spring.application.name}:${server.port}   # (geliştirici deneyimi)
 
 server:
   port: 8082
