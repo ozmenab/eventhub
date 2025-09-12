@@ -12,6 +12,8 @@ spring:
           uri: https://github.com/ozmenab/eventhub-config
           default-label: dev
           clone-on-start: true
+          search-paths:
+            - "{application}"
 
 management:
   endpoints:
