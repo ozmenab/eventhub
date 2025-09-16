@@ -1,4 +1,9 @@
 package com.eventhub.order_service.model;
 
-public class OrderStatus {
+public enum OrderStatus {
+    PENDING,
+    RESERVED,
+    REJECTED,
+    CONFIRMED,
+    CANCELLED
 }
