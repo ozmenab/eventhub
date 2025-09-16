@@ -3,13 +3,14 @@ package com.eventhub.order_service.model;
 import com.eventhub.common.domain.BaseEntity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Entity
 @Table(name = "orders")
 public class Order extends BaseEntity {
 
     @Column(name = "user_id")
-    private String userId; // şimdilik String, ileride UUID yapabilirsin
+    private UUID userId; //
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 16)
