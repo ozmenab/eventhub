@@ -22,11 +22,11 @@ public class Order extends BaseEntity {
     @Column(nullable = false, length = 3)
     private String currency = "TRY";
 
-    public String getUserId() {
+    public UUID getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(UUID userId) {
         this.userId = userId;
     }
 
